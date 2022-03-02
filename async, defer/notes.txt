@@ -1,0 +1,63 @@
+async and defer are boolean attributes that is added along with script tags
+to load external script files efficiently to our web page
+
+can do this in 3 ways:
+1. normal script tags
+2. async attribute in a script tag
+3. defer attribute in a script tag
+
+when we load a web page, 2 key things happen:
+1. html parsing
+2. loading of scripts
+
+loading script files contain 2 key things:
+1. fetching scripts from the network
+2. executing the script files line by line
+
+Normal script tags :
+
+        browser starts parsing the html line by line and suddenly
+        it encounters a script tag
+        browser now stops the html parsing
+        fetches the script file from the network and
+        executes it then and there
+        once the script execution is complete
+        html parsing resumes
+
+        Hence, javascript files blocks the rendering of html page
+        this is not an efficient method
+
+Async attribute : 
+
+        along with the html parsing
+        browser fetches the script files that has async tag on it from the network, asynchronously
+        once the script files are fetched
+        html parsing stops and script files are executed then and there
+        once, the script files execution is finished
+        html parsing resumes
+
+        Hence, javascript files blocks the rendering of html page during execution
+        this is not an efficient method
+
+        this does not gaurentee the order of execution of scripts, especially
+        when we add async attribute to scripts that are inter-dependent on each other
+        this may break our code
+
+        if we want to add a script file which is independent from our normal code
+        eg: google analytics script file etc 
+        then using async attribute is a good choice
+
+Defer attribute : 
+
+        along with the html parsing
+        browser fetches the script files that has defer tag on it from the network, parallely
+        but the html parsing never stops
+        once the html parsing gets completed
+        script files gets executed
+
+        this does gaurentee the order of execution of scripts
+        hence for inter-dependent scripts, we can use defer
+
+
+
+
