@@ -1,0 +1,10 @@
+Go to flipkart's search bar 
+Start typing something
+If we check the networks bar in the console, we will see that
+the api call 'autosuggest' is not called on every key stroke but
+is called when we pause while typing (called 2 times approx)
+Hence, api call is made for every pause, which is the efficient.
+This is called debouncing.
+
+Can be implemented for scroll events as well
+
