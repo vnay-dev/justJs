@@ -1,0 +1,36 @@
+EVENT BUBBLNG AND CAPTURING
+
+These are the 2 ways for event propogtion in the DOM tree.
+
+Eg: for nested html tags
+
+   <div id=grandparent onClick=clickGrandParent()/>
+            <div id=parent  onClick=clickParent()/>
+              <div id=child  onClick=clickChild()/>
+
+    so here, any event that occurs on the child also propogates to it's parent
+
+    In event bubbling,
+        when div#child is clicked
+        clickChild() is called, clickParent() is called and then clickGrandParent() is called
+        the event propogates up the heirarchy
+        event is "bubbling" out from the dom tree
+    
+    In event capturing,
+        the opposite happens
+        event gets captured down the dom tree
+        when div#child is clicked
+        clickGrandParent() is called, clickParent() is called and then clickChild() is called
+
+        a.k.a event trickling (trickling down)
+
+Eg : let eventVar = addEventListner("click", ()=>callback fn, useCapture)
+     
+     useCapture is the third arguement of addEventListner
+     its boolean value
+     if its true, then events are captured
+     if its false, then events are bubbled down
+     if useCapture is not given, then events are bubbled down
+
+     helps to gain control of capturing/bubbling 
+
