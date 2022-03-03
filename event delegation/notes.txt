@@ -1,0 +1,76 @@
+EVENT DELEGATION
+
+It is a technique used in handling events in a webpage in a better way
+Event delegation is based on event bubbling
+
+we often have to add a lot of event handlers for a lot of html components
+such as click, onchange etc
+as these event handlers increases
+it critically affects the performance of the webpage
+as we have a lot of event handlers crowded in the script file
+Hence, we have event delegation to solve this problem.
+
+Eg: in an e-commerce website, say we have a lot of categories
+
+    laptops, shoes, cameras
+
+    say, all these divs have ids like #laptop, #shoes, #cameras
+
+    when we click on these divs it must redirect us to a new page
+    say domain-name/laptop etc which shows the information of the corresponding product.
+
+    normally we do,
+
+        document.querySelector('#laptop')
+            .addEventListener('click',()=>{
+                window.location('domain-name/laptop)
+            })
+    
+    we add the same code to all the rest of the categories that exist in that page
+    or we add an onclick attribute to each html div elements
+
+    all the above methods affects performance
+
+    So, event delegation says that
+
+        instead of attaching event handlers for each child divs
+        attach a single event handler for its parent div that contains all the child divs
+
+    Eg: say if all these laptops, shoes, cameras are enclosed in a parent div 
+        with an id #categories
+        attach an event handler on that parent div
+        so that it keeps listening to any event changes that happens on the child
+
+        say, if an onclick event happens on the child div
+        the event bubbles out to the parent
+        and the event listener attached to the parent gets invoked
+
+PROS OF EVENT DELEGATION
+
+1. Memory
+
+    adding a single event handler to the parent div
+    instead of attaching event handlers to many child divs
+    can save a lot of Memory
+
+2. Writing less code
+
+3. DOM manipulation
+
+    if infinite scrolling is implemented on the webpage
+    then dynamically the child divs gets added on scrolling
+    so attaching event listener on every child divs is not practical
+    So we attach a single event handler onto the parent instead
+
+CONS OF EVENT DELEGATION
+
+1. All the events are not bubbled up
+
+    some events like blur, focus, resize, scroll 
+    wont bubble up the hierarchy
+
+2. We cant use stop event propogation
+
+    we cant use stop event propogation inside child divs
+    because it prevents event bubbling from executing
+    event delegation depends on event bubbling
