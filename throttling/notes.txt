@@ -1,0 +1,70 @@
+debouncing and throttling are methods to optimise performance of web apps
+it is carried out by limiting the rate of function calls
+if a particular function is getting called large number of times unnecessarily
+this function can be a simple api fetch
+
+Eg: suppose we have a search bar in an e-commerce website
+
+    assume we have a getResults() that would make an api call 
+    to fetch the search results data dynamically
+    as and when we type
+
+    we normally attach this function to the addEventListener with a keypress addEventListener
+    this is not a good practice because 
+    the function gets called every time a user types in the search bar
+    which would result in large number of function calls 
+    which will affect the performance of the web app
+
+    debouncing :- call the function only when there is a pause
+                  call the function when the difference in time between two keystrokes is 
+                  more than say 300ms (which denotes a pause while typing by the user)
+
+    throttling :- call the function after a certain amount of time (say 300ms)
+                  say the function is called during the first keystroke
+                  the next function call happens after waiting for 300ms
+                  it ignores all the keystrokes in between
+
+                  if the difference between the first and last function call is 300ms
+                  then make the function call
+
+Eg: to track the number of times the user is resizing the browser window
+
+    attaching an event listener with resize event 
+    makes large number of unnecessary api calls
+    which is ineffecient
+
+    the user may resize in either a slow or fast pace 
+
+    debouncing :- call the function if the time between 
+                  two successive resizing is say 300ms
+                  if the pace of resizing is slow, make the function call
+
+    throttling :- make the function call when the user resizes for the first time
+                  wait for 300ms and then make the next function call
+
+Eg: if there is a button and on clicking it will cause a function call
+    what if the user keeps clicking it at fast rate
+    the event listener gets called large number of times unnecessarily
+    (like a shooter game)
+
+    debouncing :- call the function if the time between 
+                  two successive button clicks is say 300ms
+                  if the user makes a pause in between two button clicks
+
+    throttling :- make the function call when the user clicks for the first time
+                  wait for 300ms and then make the next function call
+                  (eg: machine gun can fire only after say 1s, so throttling is used)
+
+                  let the user click the button at whatever rate
+                  but if depending on the type of gun
+                  the waiting time varies and so does the api call
+
+Eg: tracking how many times the user has scrolled
+
+**choosing between debouncing and throttling will totally depend on the use case
+
+
+
+
+
+
