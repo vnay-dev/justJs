@@ -1,0 +1,47 @@
+when we declare an array, object or a function
+we get access to a lot of methods, events and properties
+Eg : arr.length
+     fun.call()
+
+this is made possible by the js engine through prototypes
+it attaches our variables, functions and objects to prototype objects
+
+arr.__proto__.***
+
+    *** gives access to all the methods, arguements and properties that it has access to
+
+PROTOTYPE CHAINING : 
+
+    arr.__proto__   : this is the array prototype
+                    same as Array.prototype
+
+    arr.__proto__.__proto__ : this is the object prototype
+
+    arr.__proto__.__proto__.__proto__ : null
+
+    object.__proto__ : this is the object prototype
+
+    object.__proto__.__proto__ : null
+
+    fun.__proto__ : this is the function prototype
+                    same as Function.prototype
+    
+    fun.__proto__.__proto__ : this is the object prototype
+
+
+**EVERYTHING IN JAVASCRIPT IS AN OBJECT**
+
+when we write a dot after a var/arr/fun
+it first checks the outermost object
+then it checks the prototype object
+and it goes on through the prototype chain
+
+in polyfill session, we created
+
+    Function.prototype.mybind = function(){ do something }
+
+    hence all the functions can access this.
+    here this function is getting added onto the Function prototype
+
+    so <new function>.__proto__.** will show mybind 
+    
