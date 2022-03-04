@@ -1,0 +1,88 @@
+THROTTLING 
+
+Eg: say we have an expensive function that makes an api call
+    
+        const expensive = () =>{
+            console.log("Expensive")
+        }
+
+    now, let the use case be resizing the browser window
+    so we attach an event listener 
+
+        window.addEventListener("resize", expensive)
+
+    problem : the function gets called unnecessarily large number of times  
+              as and when the browser window resizes
+
+    so we can create a better expensive function
+    by creating a throttle function 
+    that takes in the expensive function and the delay
+    and returns a new better expensive function
+
+        const betterExpensive = throttle(expensive, limit) 
+    
+    now, we can make changes in the addEventListener
+
+        window.addEventListener("resize", betterExpensive)
+    
+    now the expensive function gets called only after a certain amount of waiting time
+
+        const throttle = (func, delay) =>{
+            return function(){
+                func()          // when the resize occurs for the first time, the function needs to called
+            }
+        }
+    
+    now, to make the delay, we use setTimeout()
+    we need to restrict the call of the func using setTimeout()
+    we use closures for implementing this 
+    we declare a flag and initialise it to true
+    once func() is made, we make the flag as false
+    the flag is made again true only after the delay ends
+
+        const throttle = (func, delay) =>{
+            let flag = true
+                return function(){
+                    if(flag){
+                        func()
+                        flag = false
+                        setTimeout(()=>{
+                            flag = true
+                        }, limit)
+                    }        
+                }
+            }
+    
+    we added a closure because we wont have to 
+    re-initialise flag again and again 
+    when the function gets returned 
+    hence instead of declaring and initialising the flag inside the return function
+    we declared and initialised outside the return function
+
+    EDGE CASES
+
+        1. what if the expensive function takes in arguements
+           how do we pass those arguements to betterExpensive function
+
+            const throttle = (func, delay) =>{
+                let flag = true
+                    return function(){
+                        let context = this
+                        let args = arguements 
+                        if(flag){
+                            func.apply(context, args)
+                            flag = false
+                            setTimeout(()=>{
+                                flag = true
+                            }, limit)
+                        }        
+                    }
+                }
+
+           
+
+
+
+
+    
+
