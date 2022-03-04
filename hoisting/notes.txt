@@ -1,0 +1,39 @@
+hoisting is the method by which
+we can access variables and functions
+even before initialising it
+its location in the code doesnt matter
+
+in six.js
+
+    in the console, go to sources and put a debugger at 
+        var x = 7
+    now look at the scope below
+    find x
+    we can see that the x is undefined
+
+    basically its all about execution context
+    first phase of memory component is all about allocating memory 
+    so x : undefined
+    and show : code of function
+
+in five.js
+
+    place a debugger in the first line
+
+    show() is function invokation, hence prints hello world
+    console.log(x) prints undefined, as it is not initialised yet
+    console.log(show) prints the code of the function, as it is not invoked it shows
+                      the value assigned to it during the memory component phase
+
+in three.js
+
+    x is not present anywhere in the function
+    hence it throws an error saying
+    x is not defined
+
+we can see the working of call stack towards the left side of scope
+by placing debugger at the function invokation points 
+we can see how the execution context gets pushed and popped
+
+
+

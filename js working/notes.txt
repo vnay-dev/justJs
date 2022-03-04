@@ -1,0 +1,21 @@
+**EVERYTHING IN JS HAPPENS INSIDE AN EXECUTION CONTEXT**
+
+execution context is like a container inside which all the js code runs 
+
+structure of execution context 
+
+    it has two components : memory and code component
+
+    memory component :- all the variables and functions are stores as key value pairs
+                        a : 10
+                        fn : {...}
+                        a.k.a variable environment 
+
+    code component :-   this is where code gets executed line by line
+                        a.k.a thread of execution
+
+**JAVASCRIPT IS A SYNCHRONOUS SINGLE THREADED LANGUAGE**
+
+single threaded :- can only execute one line at a time
+synchronous single threaded :- can only execute one line at a time in a single order
+

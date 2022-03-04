@@ -1,0 +1,103 @@
+JS CODE EXECUTION AND CALL STACK
+
+when we run a js program 
+an execution context is created
+
+reference code :-
+
+       1  var n = 2
+       2 
+       3  function sqaure(num){
+       4      var ans = num*num
+       5      return ans
+       6  }
+       7 
+       8  var sqaure2 = sqaure(n)
+       9  var sqaure4 = sqaure(4)
+
+so when we run this code
+execution context gets created 
+with memory and code components
+
+execution context gets created in 2 phases :-
+
+    1. memory creation phase
+    2. code execution phase
+
+memory creation phase :- 
+
+    reads line 1 and 3 : allocates memory to n and function sqaure
+                         for n it stores a spatial value called undefined
+                         for sqaure() it stores the entire code in the memory
+    reads line 8 and 9 : stores undefined value for both sqaure2 and sqaure4
+
+code execution phase :-
+
+    line 1 : replaces the value of n with 2
+    line 3 to 6 : nothing to execute
+    line 8 : function is invoked
+             in js, functions are mini programs
+             till now the code was working inside global execution context
+             but when it encounters a function invokation
+             a new execution context is created
+             with memory and code component
+
+             1. memory creation phase :-
+
+                    line 3 : allocates memory for num as undefined
+                    line 4 : allocates memory for ans as undefined
+             
+             2. code execution phase :-
+
+                    parameter num gets the value of 2
+                    ans gets replaced by num*num (4)
+
+                    line 5 : says return the control to the main program
+                             where the function was first invoked
+                             value 4 was fetched from the memory component or local memory 
+                             now sqaure2 gets the value 4
+                             
+                             now the instance of code execution for square gets deleted
+                    
+    line 9 : function is invoked
+             new execution context gets created
+
+             memory component :- num : undefined 
+                                 ans : undefined
+             
+             code execution :- num parameter gets 4
+                               num : 4
+                               ans : 16
+                               return statement : control goes back to point of function invokation 
+                               sqaure4 : 16
+                               execution context gets deleted
+    
+    now the whole program ends
+    global execution context gets deleted
+
+so to manage the creation, deletion of all the execution contexts
+js keeps a call stack
+
+when a js code is about to execute
+the stack gets pushed with a global execution context in the bottom
+
+when a function invokation happens
+a new execution context is created 
+and it gets pushed into the stack (on top of the global execution stack)
+
+once the function encounters return statement
+that execution context gets popped out of the stack
+
+once the js code finishes execution
+global execution context gets popped out of the stack
+
+
+
+
+
+
+
+
+
+
+
