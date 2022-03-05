@@ -1,0 +1,89 @@
+scope chain
+
+scope is related to lexical environment
+
+    function a(){
+        console.log(b)  // prints 10
+    }
+    var b = 10
+    a()
+
+////////////////////////////////////////
+    
+    function a(){
+        c()
+        function c(){
+            console.log(b)  // prints 10
+        }
+    }
+    var b = 10
+    a()
+
+////////////////////////////////////////
+
+    function a(){
+        var b = 10
+        c()
+        function c(){
+
+        }
+    }
+    a()
+    console.log(b)  // error : b is not defined 
+
+////////////////////////////////////////
+
+scope is where we can find our variable inside our code 
+    1. what is the scope of a variable
+    2. is the variable inside the scope of a function
+
+in eg 3,
+
+    first global execution context is created
+    pushed onto the stack
+    in the memory component : code of function a is stored
+
+    function a is invoked
+    new execution context for function a is created 
+    in the memory component : b : undefined 
+                              c : function code
+    code runs : b : 10
+    
+    function c is invoked
+    new execution context for function c is created 
+    function c is empty so nothing to setup
+
+    ** whenever a execution context is created 
+       a lexical environment is also created 
+       which is local memory plus lexical environment of its parent
+       fun c is lexically inside fun a 
+       fun a is lexically inside global scope 
+
+       execution context of fun c : local memory + reference to the lexical env of it s parent (fun a)
+       execution context of fun a : local memory + ref to lex env of global scope
+       execution context of global scope : local memory + ref to its parent (null)
+
+    ** assume in eg 3
+
+       inside function c 
+       if we place a console.log(b)
+       it first checks the local memory of exe context of c 
+       then it checks it parents exe context
+       since b is present there, it prints b 
+
+       suppose b was not there in a 
+       it will check its parent exe context (global scope)
+
+       suppose b is absent in the code 
+       it will check the parent of global exe context (null)
+       and throws an error : b is not defined 
+
+       this is called scope chaining 
+       using scope chaining we can find out whether a variable exist in the code or not 
+
+       in console --> sources --> scope 
+       in the call stack we can see for each exe context
+       local plus global lexical env 
+        
+
+

@@ -1,0 +1,57 @@
+the shortest js program is an empty js file
+linked to an html file
+
+how?
+
+    run the js file
+    go the console --> sources --> debugger on the first line
+    a global execution context is created
+    and sets up the memory space
+
+    now go to the console
+    type in window and press enter
+    it returns a window object
+
+    window object is created by the js engine 
+    along with the global execution context
+    we can access these object attributes anywhere in our code
+
+    if we type in a this keyword and press enter
+    it also returns the same window object
+    since this keyword is pointing to the window object
+    it is returning the window object
+
+    hence when a js code runs 
+    a global execution context + window object + this keyword 
+    gets generated
+
+    all browsers that runs js code have a js engine
+    chrome has v8 engine 
+    js engines have the responsibility to create a global object
+    for browsers its called window
+
+    at the global level
+    this === window (type this into the console, it will return true)
+
+    global space : any variable/object that is not included inside a function
+
+    if we run this code :-
+
+        var x = 10
+        function a(){
+            var b = 9
+        }
+
+    go to console and type in window 
+    inside the window object we can find x and function a 
+    but wont find b as it is not in global space 
+
+        console.log(window.x)   // returns 10
+        console.log(x)          // engine assumes that we are referring to the global space and prints 10
+        console.log(b)          // will show error : b is not defined (as it is not there in the global scope)
+
+        console.log(this.x)     // returns 10 (window is same as this on global scope)
+                
+
+
+

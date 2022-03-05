@@ -1,0 +1,23 @@
+undefined
+
+this is the placeholder keyword that is given to variables
+during the memory component phase
+even before code actually runs 
+
+    console.log(a)  // undefined
+    var a = 10  
+    console.log(a)  // 10
+
+    var a
+    console.log(a)  // undefined
+
+js is a loosely typed language
+first we can initialise a with a string
+second we can initialise a with a number
+
+its not a good practice to do the following
+
+    var a = undefined
+
+because it is already a reserved placeholder keyword 
+that says nothing was assigned to it 
