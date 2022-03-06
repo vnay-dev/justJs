@@ -1,0 +1,118 @@
+block scope 
+
+space between {} is called a block
+a.k.a compound statement 
+as it is used to combine 
+multiple js statements into a group 
+why is it useful?
+    it is used where js expects a single statement
+    eg : if (true) will throw an error 
+         if (true) true is correct 
+         if (true) {//multiple lines of code} 
+         if expects a single statement but we used a block instead 
+
+block scope :- which all variables and functions can we access inside this scope 
+
+    {
+        let a = 10
+        var b = 20
+        const c = 100
+    }
+
+    if we place a debugger on the first line 
+    console --> sources --> scope 
+
+    block scope :- a : undefined
+                   c : undefined
+    
+    global scope :- b : undefined 
+    hence, let and const are block scoped 
+    we cannot access let and const outside the block
+    but we can access var outside the block because of the global scope 
+    
+    if we place console.log of let and const variables 
+    outside the block it throws an error 
+    because after the block ends, the block scope is destroyed 
+    and moves on to the global scope where var can be only accessed 
+
+    var a = 100
+    {
+        var a = 10
+        let b = 20
+        const c = 30
+    }
+    console.log(a)  // 10
+
+    first a : 100 in global scope 
+    then a : 10 in block scope 
+    since var can be re initialised 
+    it shadows the previous value of 100
+
+    let b = 100
+    {
+        var a = 10
+        let b = 20
+        const c = 30
+    }
+    console.log(b)  // 100
+
+    both bs had different scope 
+    inside the block, b prints 20
+    outside the block, b prints 100
+    this is also an eg of shadowing 
+    same behaviour for const variables
+    same behaviour for function scope as well (shadowing exist)
+
+    let a = 10
+    {
+        var a = 20
+    }
+
+    this is not correct
+    this is called illegal shadowing 
+    a is already been declared 
+    we can shadow a let using a let (same with const)
+    but we cant shadow a let using a var 
+    but we can shadow a var using let 
+
+    let a = 10
+    function x(){
+        var a = 90
+    }
+
+    this is not illegal shadowing 
+    because boundaries for the block has been clearly defined
+
+    block scope also follows lexical scope chain pattern
+
+    const a = 10
+    {
+        const a = 90
+        {
+            const a = 20
+            console.log(a)  // 20
+        }
+        // console.log(a)   // 90
+    }
+
+    nearest value of a gets fetched using lexical scope 
+    console --> sources --> block
+    each block will have its own block scope created 
+
+    const a = 10
+    {
+        const a = 90
+        {
+            console.log(a)  // 90 searches local memory then its parent 
+        }
+    }
+
+    normal functions and arrow functions have same scope 
+
+
+
+
+
+
+
+
