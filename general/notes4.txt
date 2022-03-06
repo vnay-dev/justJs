@@ -1,0 +1,99 @@
+temporal dead zone / let, var, const
+
+let and const are hoisted 
+
+    console.log(b)  // prints undefined (hoisting)
+    let a = 10
+    var b = 100
+
+    console.log(a)  // uncaught reference error : cannot access a before initialisation
+    let a = 10
+    var b = 100
+
+    let a = 10
+    console.log(a)  // prints 10
+    var b = 100
+
+    check console --> sources --> scope
+    for eg 3, a : undefined is found inside a 'script' 
+              b : undefined inside global scope
+    so let and const declarations also allocate memory
+    but not inside global scope 
+    we cant access these memory until we initialise values into them 
+    var declaration allocates memory inside global scope  
+
+    time from a let variable is hoisted 
+    to the time till it is initialised is called temporal dead zone 
+    i.e in eg2 :- from line 9 to line 10 (time difference)
+
+    since b is declared as var 
+    it is available in the global scope 
+    hence window.b // 100
+    this.b  // 100
+
+    but since a is declared as let 
+    it is not available in the global scope 
+    hence window.a // undefined
+    this.a  // undefined
+    it is treated like a variable which is not present in the code 
+
+Redeclaration is not allowed in let 
+
+    let a = 10
+    let a = 100
+
+    the above code will throw an error 
+    completely rejects the entire code upfront
+    syntax error : Identifier has already been declared 
+
+    let a = 10
+    var a = 100
+
+    also throws the same error 
+    but var is flexible and allows redeclaration 
+
+const behaves the same as let in hoisting 
+but is even more stricter 
+
+const doesnt allow to initialise value to a variable 
+after declaration 
+
+    const b 
+    b = 100
+
+    throws a syntax error and rejects the whole code 
+    it should be const b = 100 
+    declaration and initialisation must take place together 
+
+    const b = 1000
+    b = 20 
+
+    throws a type error : assignment to constant variable 
+    type error because it dealt with const which is a type 
+
+    const b 
+
+    throws a syntax error
+    syntax error because according to js syntax const must be declared and initialised together 
+
+    reference error is js engine trying to find a variable
+    and unable to locate it in the memory
+
+    preference : const > let > var (try to avoid var)
+
+how to avoid temporal dead zone?
+
+    try to declare all the variables 
+    on global scope on top so that 
+    it hits the initialisation part first 
+    then moves to logic part 
+    probability to run into errors minimises 
+
+
+
+
+
+
+
+
+
