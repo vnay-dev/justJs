@@ -1,0 +1,120 @@
+closures 
+
+    function x(){
+        var a = 7
+        function y(){
+            console.log(a)
+        }
+        y()
+    }
+    x()
+
+    searches local memory
+    then goes to parent
+    prints 7 
+
+    this is basically closure
+
+    if we put a debugger 
+    on console.log(a)
+    we can find closure scope in the sources tab
+
+    clousre :- its a function that binds together its lexical environment/scope 
+               and forms a closure 
+
+    function x(){
+        var a = function y(){
+            console.log(a)
+        }
+        y()
+    }
+    x()
+
+    function x(){
+        var a = 7
+        function y(){
+            console.log(a)
+        }
+        return y
+    }
+    var z = x() // gets y as its return value during invokation
+    console.log(z) // prints code of function y
+
+    once the function x gets invoked 
+    the exe context of x gets vanished from call stack 
+
+    function x(){
+        var a = 7
+        function y(){
+            console.log(a)
+        }
+        return y
+    }
+    var z = x() // gets y as its return value during invokation
+    console.log(z) // prints code of function y
+    z() // will search for a as it is invoking y essentially
+    but it prints 7 !!!
+
+    even after returning function scope still retains the lexical scope 
+    when y was returned to z 
+    the function code along with the lexical environment was returned 
+    as a full binding
+    function + closure (lexical scope)
+    
+    function x(){
+        var a = 7
+        return function y(){    // this is also another way
+            console.log(a)
+        }
+    }
+    var z = x() 
+    console.log(z) 
+    z() 
+
+    function x(){
+        var a = 7
+        function y(){   
+            console.log(a)
+        }
+        a = 100
+        return y
+    }
+    var z = x() 
+    console.log(z) 
+    z() 
+
+    the above code prints 100
+    because the reference of a changed from 7 to 100
+
+    function z(){
+        var b = 9090
+        function x(){
+        var a = 7
+        function y(){    
+            console.log(a, b)
+        }
+           y()
+        }
+        x()
+    }
+    z()
+
+    closure of z with b : 9090
+            of x with a : 7
+    is formed 
+
+
+
+uses of closures 
+
+- module design pattern 
+- currying
+- functions like once 
+- memoize 
+- maintaining state in async 
+- setTimeouts
+- iterators
+
+
+
+
