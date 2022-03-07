@@ -1,0 +1,21 @@
+callback function
+
+in first class functions
+we can pass functions as arguements
+these are called callback functions
+
+in setTimeout we provide first arguement as a callback function
+
+    setTimeout(cb, 500)
+    
+    function x(y){
+
+    }
+    
+    x(function y(){
+        // some code 
+    })
+
+    the function in the time out will get scheduled for 500ms
+    and js doesnt wait it continues to execute the next line asynchronously
+    after 500ms cb gets invoked

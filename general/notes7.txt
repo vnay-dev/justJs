@@ -1,0 +1,77 @@
+functions 
+
+- function statement (a.k.a function declaration)
+
+    function a(){
+        // some code 
+    }
+
+- function expression
+
+    var b = function(){
+        // some code
+    }
+
+difference between function expression and statement is hoisting 
+
+    a()
+    b()
+    
+    function a(){
+        // some code 
+    }
+
+    var b = function(){
+        // some code
+    }
+
+output :- a() // will call the function and execute it normally
+          b() // will throw an error
+
+because in hoisting, memory is allocated to a : code of function, hence gets executed 
+b is treated like a variable, b : undefined, the assignment changes only when it hits var b = fun() line 
+
+- anonymous functions 
+
+function without a name is anonymous function
+they dont have identity
+if we declare function like the following code
+it throws a syntax error as it requires a name
+anonymous functions are useful when we want to use it as values (eg 2)
+anonymous functions cant be declared in function statement
+but can be declared in function expression
+
+    function(){
+
+    }
+
+- named function expression
+
+var b = function xyz(){
+    // some code 
+}
+
+providing a name to the anonymous function
+when assigning to a value 
+** if we call the above function as xyz() instead of b()
+   it throws an error because
+   xyz is created as a local variable 
+   we can only access it inside the function scope i.e inside function xyz(){}
+   we cannot access it in the global scope 
+
+- difference between parameters and arguements
+
+    function xyz(parameters){}
+
+these identifiers are parameters
+can only be accessed inside the function scope 
+    
+    xyz(arg1, arg2)
+
+- first class functions
+
+the ability to assign functions to varaibles 
+to pass as arguements to another function 
+to return anonymous function from a function 
+
+
