@@ -1,0 +1,38 @@
+given :- 
+    
+    let people = [
+    {
+        name: "Emily",
+        age: 10,
+    },
+    {
+        name: "Emma",
+        age: 11,
+    },
+    {
+        name: "Gwen",
+        age: 18,
+    },
+    {
+        name: "Emily",
+        age: 10,
+    },
+    {
+        name: "Gwen",
+        age: 18,
+    },
+    {
+        name: "Stacy",
+        age: 17,
+    },
+    ];
+
+output :-   
+
+    { 
+        10 : 2, 
+        11 : 1, 
+        18 : 2, 
+        17: 1
+    }
+

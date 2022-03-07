@@ -1,3 +1,5 @@
+//  attempt 1 (ideal solution)
+
 let people = [
   {
     name: "Emily",
@@ -26,12 +28,12 @@ let people = [
 ];
 
 let result = people.reduce((init, curr) => {
-  if(obj[curr.age]){
-      console.log(obj[curr.age])
-      obj[curr.age] += 1
-  }else{
-      console.log("else", obj[curr.age])
-      obj[curr.age] = 1
+  if (obj[curr.age]) {
+    console.log(obj[curr.age]);
+    obj[curr.age] += 1;
+  } else {
+    console.log("else", obj[curr.age]);
+    obj[curr.age] = 1;
   }
   return obj;
 }, (obj = {}));
