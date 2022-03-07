@@ -1,0 +1,86 @@
+event loop
+
+js is a synchronous single threaded language
+it has one call stack
+and can only do one thing at a time 
+this call stack is present inside the js engine
+and all the code is executed inside the call stack
+
+eg : function a(){
+        console.log("hello")
+     }
+     a()
+     console.log("end")
+
+     first a global exe context is created
+     it is then pushed inside the call stack 
+     then the line by line execution of code happens inside the call stack
+     a : code of function a 
+     a() // function gets invoked 
+     a new instance of exe context is created for fun a 
+     which is again pushed inside the call stack 
+     now line by line execution of function a happens 
+     prints hello in console 
+     function a exe context gets popped out of the stack 
+     next end gets printed onto the console 
+     global exe context gets popped out of the stack 
+
+     call stack immidiately executes anything that gets pushed into it 
+     it never waits 
+
+     but what if we have a script that demands a waiting time? 
+     like execute after 100ms 
+     this cannot be implemented inside the call stack
+
+- so this is how we can control the time inside the call stack
+
+browser contains js engine 
+js engine contains call stack 
+call stack contains programs 
+browser also has local storage, timers (bluetooth, geolocation etc)
+
+- so how does js engine access these features in the browser?
+
+browser have web apis (the following are not a part of js)
+    - setTimeout 
+    - DOM apis 
+    - fetch()
+    - local storage
+    - console 
+    - location
+browser grants access of these features to the js engine 
+through a global object called window 
+window.setTimeout, window.fetch etc 
+but since it is present in the global scope 
+we dont need to specify window.console.log everytime 
+
+    console.log("start")
+    setTimeout(cb that prints "callback", 5000)
+    console.log("end")
+
+gec is created
+it reads first line and prints start
+it reads second line registers the cb and starts timer of 5000
+it reads the third line and prints end 
+gec is popped out 
+after 5000 cb must be called 
+we need to bring cb inside the call stack
+
+- event loop and callback queue 
+
+when timer expires after 5000 
+it is pushed into the callback queue 
+event loop checks the callback queue and places the item to call stack
+like a gatekeeper
+event loop pushes the cb into the call stack 
+call stack immidiately executes the cb 
+and prints "callback"
+
+
+
+
+
+
+
+
+

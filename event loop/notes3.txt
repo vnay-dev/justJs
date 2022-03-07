@@ -1,0 +1,53 @@
+fetch 
+
+console.log("start")
+setTimeout(cb, 5000)
+fetch(api)
+    .then(cb2 prints netflix)
+....lot of code 
+console.log("end")
+
+gec is created 
+start gets printed 
+cb gets registered for setTimeout in the web api environment
+cb2 also gets registered for fetch
+once api sends back data
+cb2 gets invoked 
+after 50ms, api sends data 
+but cb2 gets pushed into another queue called microtask queue 
+
+- microtask queue has higher priority than callback queue 
+  callback queue is executed after microtask queue is executed
+  cb2 is related to network calls and promises
+
+so we are executing the rest of the code 
+and the cb2 is also ready because that api2 was fast 
+timer is also running 
+
+cb gets pushed onto the callback queue when the timer expires 
+
+end is then printed 
+gec is popped out 
+event loop lets cb2 execute into the call stack 
+prints netflix
+popped out 
+
+event loop lets cb execute into the call stack 
+prints something
+popped out 
+
+- what are the functions that can enter into the microtask queue?
+
+all the callback functions that come through promises and network calls will enter into the microtask queue
+rest goes into the callback queue (a.k.a task queue)
+
+- mutation observer 
+
+it constantly checks whether there has been any mutation in the dom tree or not 
+if there is a mutation, we can execute a cb function 
+
+if microtask queue gets populated with a lot of tasks 
+then callback queue never gets a chance 
+as event loop gives higher priority to the microtask queue
+this is called callback queue starvation 
+

@@ -1,0 +1,30 @@
+console.log("Start")
+document.getElementById("btn")
+    .addEventListener("click",function cb(){
+        console.log("hello")
+    })
+console.log("end")
+
+gec is created and pushed onto the call stack 
+start is printed 
+dom api is called 
+registers a cb on event "click" 
+end is printed 
+gec is popped out 
+event listener always remains as such unless we close the browser or we explicitly removes it 
+when user clicks on the button 
+cb pushed onto the callback queue and waits 
+
+event loop continously monitors the callback queue and call stack 
+it pushes the cb into the stack 
+and it hello gets printed 
+callback queue gets empty 
+
+- why cant the event loop directy push the cb from the memory to the call stack without using callback queue
+
+    suppose the user clicks the button like a couple of times 
+    then those number of click events as cbs will be pushed onto the callback queue
+    event loops executes them one by one 
+    
+
+
