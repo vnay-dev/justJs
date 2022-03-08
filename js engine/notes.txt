@@ -1,0 +1,90 @@
+js is used in many apps like browsers, servers, watches, robots 
+because of js runtime environment 
+
+js runtime environment has 
+    - a js engine (heart)
+    - a set of apis
+    - event loop
+    - callback queue
+    - microtask queue
+
+node js also has a js runtime environment
+so based on the apps 
+js engine remains the same 
+but the apis differ 
+setTimeout, console are common apis that are present 
+in both browsers and nodejs
+but internally they are implemented differently
+
+microsoft edge uses js engine called chakra 
+chrome uses v8 (node js also has the same engine)
+firefox has spidermonkey 
+
+js engine is not a machine 
+it takes code as input 
+code then goes through 3 steps :-
+    1. parsing 
+    2. compilation
+    3. execution
+
+parsing :- 
+
+    code is broken down to tokens
+    it has syntax parser that converts the code into abstract syntax tree (AST)
+
+compilation :-  
+
+    AST is recieved 
+
+    js has JIT compilation(just in time compilation)
+        interpreter :- executes code line by line in order (faster)
+        compiler :- first compiled as a whole, then new optimised code gets executed (more efficient)
+    js can behave like both 
+    depends on js engine 
+    intially, it was created as an interpreter because for browsers speed is important 
+    but nowadays, it is a mix of both interpreter and compiler
+    hence the name JIT compilation
+
+    AST goes to the interpreter
+    interpreter converts it to optimised code 
+    sent to execution stage
+    while it does that it also takes in the help of compiler to make the code more optimised
+    interpretation and compilation takes place together 
+
+    AOT compilation called ahead of time compilation
+    takes in chunks of code and 
+    optimises it as much as it can 
+    and the byte code produced is sent to the execution stage 
+
+execution :- 
+
+    must need call stack and the memory heap 
+    memory heap is where the memory gets allocated 
+    it is in sync with the call stack and the garbage collector 
+    garbage collector tries to free up the memory heap whenever possible 
+    using an algo called mark and sweep algo 
+    compiler does many of the following to make the optimised version of code :-
+        - inlining
+        - copy elision 
+        - inline caching 
+
+google's v8 engine 
+
+    has an interpreter named ignition
+    has a compiler called turbo fan 
+    garbage collector called orinoco 
+    
+    v8 block diagram
+
+        js code --> parser --> AST --> interpreter ignition --> bytecode 
+                                            |
+                                            |
+                                        compiler turbo fan --> optimised machine code
+
+
+
+
+
+
+
+
