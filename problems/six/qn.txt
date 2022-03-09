@@ -1,0 +1,11 @@
+arr = [
+    {firstName : "Elon", lastName : "Musk", age: 26},
+    {firstName : "George", lastName : "Michael", age: 36},    
+    {firstName : "Bill", lastName : "Gates", age: 16},
+    {firstName : "Steve", lastName : "Jobs", age: 86},
+    {firstName : "Martin", lastName : "Paul", age: 6},
+]
+
+filter all the people's first name whose age is less than 30
+
+arr = [ "Elon", "Bill", "Martin"]
