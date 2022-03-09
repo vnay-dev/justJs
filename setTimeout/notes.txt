@@ -1,0 +1,62 @@
+giving a delay of 5 seconds to setTimeout
+wont actually wait till 5 sec 
+
+it may wait for longer
+and cb will be invoked after a longer period of time 
+it depends on the call stack 
+
+when it hits on a setTimeout function 
+it registers the cb onto the web apis 
+and the timer starts 
+
+assume that there are many lines of code 
+after the setTimeout function 
+assume it takes 10 sec to execute these lines 
+so the gec will still be inside the call stack 
+for 10sec 
+but after 5sec, the timer has already expired 
+and has pushed the cb into the callback queue
+
+the event loop checks whether the call stack is empty
+the functions from the callback queue gets pushed onto the call stack 
+only when the call stack gets empty 
+
+the reality is the cb inside the setTimeout function 
+gets executed after waiting for 10sec 
+this is called concurrency model in js 
+
+after 10sec, gec gets popped out from the call stack
+and cb gets pushed onto the call stack 
+and it gets executed 
+after 10sec, even though we wrote the code for 5sec 
+
+- blocking the main thread or call stack 
+
+    // setTimeout()
+
+    // while loop mimics the large lines of code
+
+    let startDate = new Date().getTime()
+    let endDate = startDate
+
+    while(endDate< startDate + 10000){
+        endDate = new Date().getTime()
+    }
+
+    console.log("Expires")
+
+here we can see that 
+the cb will be invoked after 10 sec 
+and not after 5sec as per our code in setTimeout
+
+- even if we give the delay as 0ms in setTimeout
+  it behaves the normal way 
+
+  it has to pass through the callback queue 
+  and only executed once gec gets popped out of the stack 
+  this is done to defer some piece of code 
+  to wait for everything in the main thread has finshed executing 
+
+  
+
+    
