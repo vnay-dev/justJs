@@ -1,0 +1,17 @@
+learn writing js from scratch
+editor shortcuts
+fetching data from api calls 
+library functions eg lodash, _js
+dom manipulation
+local storage
+searching
+sorting 
+tagging
+flexbox in css
+responsiveness of app
+thinking recursively 
+modular code eg. reusable functions
+scalable eg. adding 10 more items or features should not break our code 
+readable eg. that doesnt demand comments
+
+

@@ -1,0 +1,73 @@
+comment widget
+
+we have a comment box 
+it has an input field and a comment button 
+and it has a list of comments beneath
+these comments are nested 
+i.e. i can reply to a comment, to which also one can reply 
+     so its like recursion 
+must be able to edit the comments
+must be able to delete the comment 
+    so we should ask, when a comment gets deleted
+    what happens to its children comments
+    (they also gets deleted)
+also has like feature
+
+todo app
+
+3 lists : todo, currently working, finished
+we can keep adding n number of lists to it 
+each list has a card containing a task 
+card contains :
+    title 
+    description
+edit and delete a task within the list 
+edit the list name 
+drag and drop feature : drag a task between lists and between tasks
+rearrage list order 
+
+food ordering app
+
+api integration
+contains cards having :
+    pic of the restaurent
+    title 
+    description
+    rating 
+    location
+    time taken to deliver from here (eta)
+    menu
+responsive
+search functionality (debouncing)
+sorting based on name, eta, rating
+tagging (cuisine) i.e filtering in search
+
+email web app
+
+sidebar on the left contains :
+    inbox 
+    sent
+    starred 
+similar to gmail 
+next section towards the right contains the list of the mails 
+next section on the right must display the mail when clicked on the list of mails 
+each mail in the list must have read/unread styling 
+inbox in the sidebar can specify the number of unread mails 
+delete mail 
+
+sudoku game 
+
+comparison app
+
+product or profile comparisons
+eg tinder, amazon, github api
+responsive 
+
+
+
+
+
+
+
+
+
