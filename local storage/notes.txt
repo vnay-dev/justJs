@@ -1,0 +1,46 @@
+web storage apis is used to store data locally on the browser
+this data is in the form of key value pairs of strings (large object)
+
+two ways to store :-
+    session storage 
+    local storage 
+
+session storage 
+
+    data is persistent only for that particular session 
+    suppose we visit a website, at the point of entry, a session is started 
+    when the tab in which that website is opened is closed 
+    all the session data is lost
+    better than cookies 
+    unilke cookies, session data is not sent to the server through network calls 
+    session storage has very large capacity to hold data
+    eg: cookies can store about 4000 bytes of data while
+        session storage can hold 5mb of data (minimum)
+
+local storage 
+
+    same as session storage
+    but the advantage is that local storage does not clear itself 
+    even if we close the tab or turn off our system, 
+    the local storage data will be still present in the browser
+    as long as we want 
+    local storage has the largest capaity to store data 
+    when compared with cookies and session storage
+    the memory capacity depends on the type of system, browser that the user uses 
+    easier to fetch local storage data instead of making network calls 
+    useful for optimising the performance of the web app 
+
+all storage apis follow the same origin policy
+because of the security concerns 
+
+origin contains three components :-
+    1. protocol - http/https
+    2. host - domain 
+    3. port 
+we set data for that particular origin 
+changes in any of these components will restrict the access 
+
+local storage is present in the window object 
+
+
+
