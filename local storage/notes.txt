@@ -9,7 +9,7 @@ session storage
 
     data is persistent only for that particular session 
     suppose we visit a website, at the point of entry, a session is started 
-    when the tab in which that website is opened is closed 
+    when the tab in which that website is opened is closed (accesible only from that same tab)
     all the session data is lost
     better than cookies 
     unilke cookies, session data is not sent to the server through network calls 
@@ -19,6 +19,7 @@ session storage
 
 local storage 
 
+    size : 10 mb
     same as session storage
     but the advantage is that local storage does not clear itself 
     even if we close the tab or turn off our system, 
@@ -41,6 +42,20 @@ we set data for that particular origin
 changes in any of these components will restrict the access 
 
 local storage is present in the window object 
+
+*****COOKIES*****
+
+also a method of storing data in our browser
+size : 4KB
+both local storage and cookies can be accessed from any window in the browser 
+the expiration time is set manually 
+both of session/local storage are stored on browser only
+while cookies are stored on server also 
+sent with network requests 
+it is used for authentication purposes for the same reason
+that is why cookies are small in size 
+if large, it will be difficult for them to be sent via network calls
+
 
 
 
