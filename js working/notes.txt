@@ -16,6 +16,47 @@ structure of execution context
 
 **JAVASCRIPT IS A SYNCHRONOUS SINGLE THREADED LANGUAGE**
 
-single threaded :- can only execute one line at a time
+single threaded :- can only execute one line at a time (single call stack)
 synchronous single threaded :- can only execute one line at a time in a single order
+
+BUT....
+
+if we want to make an api call/db request/execute a function with delay
+we dont know when the data gets fetched and gets available
+hence we want js to behave in an asynchronous manner
+
+In these circumstances, you may not want the JavaScript engine 
+to halt the execution of the other sequential code. 
+So, the JavaScript engine needs to manage things a bit more efficiently in this case.
+
+We can classify most asynchronous JavaScript operations with two primary triggers:
+
+1. Browser API/Web API events or functions: 
+    
+        These include methods like setTimeout, or event handlers like click, mouse over, scroll etc.
+        they rely on callback functions
+        cb functions are executed when an async operation gets completed
+        concepts of cb queue (already there in notes)
+
+2. Promises:
+    
+     A unique JavaScript object that allows us to perform asynchronous operations.    
+     You can create a promise using the Promise constructor
+     You need to pass an executor function to it. 
+     In the executor function, you define what you want to do 
+     when a promise returns successfully or when it throws an error
+     You can do that by calling the resolve and reject methods, respectively.
+
+        const promise = new Promise((resolve, reject) =>
+                resolve('I am a resolved promise');
+        );
+
+    After the promise is executed, we can handle the result using the .then() method 
+    and any errors with the .catch() method.
+    You use promises every time you use the fetch() method to get some data from a store.
+
+    The point here is that JavaScript engine doesn't use the same callback queue 
+    It uses another special queue called the task Queue.
+
+    
 
