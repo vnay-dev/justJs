@@ -43,7 +43,7 @@ function merge(arr, left, mid, right) {
 
 function merge_sort(arr, left, right) {
   if (left < right) {
-    let mid = left + parseInt((right - left) / 2);
+    let mid = Math.floor((left + right) / 2);
     merge_sort(arr, left, mid);
     merge_sort(arr, mid + 1, right);
     merge(arr, left, mid, right);
