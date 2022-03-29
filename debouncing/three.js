@@ -27,4 +27,4 @@ const betterFunction = debounce(getData, 300);
 
 // when betterFunction() is called
 // multiple copies of the timer function wil be returned
-// if the timer is not cleared, i.e if the time goes over delay, these functions will be called
+// if the timer is not cleared, i.e if the time goes over delay, these getData will be called
