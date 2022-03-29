@@ -24,3 +24,7 @@ const betterFunction = debounce(getData, 300);
 
 // now the api gets called only when the difference between two keystrokes are greater than 300ms
 // i.e only while typing gets paused
+
+// when betterFunction() is called
+// multiple copies of the timer function wil be returned
+// if the timer is not cleared, i.e if the time goes over delay, these functions will be called
