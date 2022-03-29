@@ -7,8 +7,8 @@ function multiply(x) {
   };
 }
 
-let multiplyByTwo = multiply(2);
-multiplyByTwo(7);
+let multiplyByTwo = multiply(2);  // 2 will be assigned for x
+multiplyByTwo(7);                 // 7 will be assigned for y
 
 let multiplyByThree = multiply(3);
 multiplyByThree(7);
